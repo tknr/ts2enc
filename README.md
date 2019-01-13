@@ -36,7 +36,7 @@ ts2enc.pl input.ts output.mp4 [options]
 - -speed : 0.5~2.0
 - -mono : main / sub / both
 - -multi
-- -crop : width:height:vertiacl position:hrisontal position
+- -crop : width:height:vertical position:horisontal position
 - -vol : multipul number or xxdB
 - -two : 2-pass encode
 - -vbr : 
