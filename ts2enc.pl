@@ -16,8 +16,8 @@ $SIG{'INT'}  = \&handler;
 $SIG{'KILL'} = \&handler;
 
 # ユーザー設定
-my $ffmpeg_cmd  = "/usr/local/ffmpeg_build/bin/ffmpeg";
-my $ffprobe_cmd = "/usr/local/ffmpeg_build/bin/ffprobe";
+my $ffmpeg_cmd  = "/usr/local/bin/ffmpeg";
+my $ffprobe_cmd = "/usr/local/bin/ffprobe";
 my $preset_file = "/usr/local/etc/ts2enc.ffpreset";
 
 my $reso_large = "1280x720"; # 自動判定時の出力解像度(大)
