@@ -1,19 +1,17 @@
-#!/bin/sh
+#!/bin/bash -x
 
-uid=`id | sed 's/uid=\([0-9]\+\)(.\+/\1/'`
-   
-if [ $uid -ne 0 ];then
-    echo "error: not root user"
-    exit 1
+mkdir -p ~/bin
+mkdir -p ~/.local/ffpreset
+ln -s `pwd`/ts2enc ~/bin/
+ln -s `pwd`/recorded_enc ~/bin/
+ln -s `pwd`/ts2enc.ffpreset ~/.local/ffpreset/
+
+export_count=`cat ~/.bash_profile | grep 'export PATH="$HOME/bin:$PATH"' | wc -l`
+echo $export_count
+
+if [ $export_count -eq 0 ]; then
+	echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bash_profile
 fi
-
-bin_files="ts2enc.pl recordedEnc.sh"
-etc_files="ts2enc.ffpreset"
-bin_dir="/usr/local/bin"
-etc_dir="/usr/local/etc"
-
-chown root:root ${bin_files} ${etc_files}
-chmod +x ${bin_files}
-mkdir -p ${bin_dir} ${etc_dir}
-cp -p ${bin_files} ${bin_dir}
-cp -p ${etc_files} ${etc_dir}
+echo "installed."
+echo "execute to complete installation:"
+echo "source ~/.bash_profile"
