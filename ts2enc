@@ -18,11 +18,11 @@ $SIG{'KILL'} = \&handler;
 # ユーザー設定
 my $ffmpeg_cmd  = "/usr/local/bin/ffmpeg";
 my $ffprobe_cmd = "/usr/local/bin/ffprobe";
-my $preset_file = "/usr/local/etc/ts2enc.ffpreset";
+my $preset_file = "~/.local/ffpreset/ts2enc.ffpreset";
 
-my $reso_large = "1280x720"; # 自動判定時の出力解像度(大)
+my $reso_large = "1920x1080"; # 自動判定時の出力解像度(大)
 my $reso_small = "720x480";  # 自動判定時の出力解像度(小)
-my $quality = 25;      # CRF値(画質, 0-51の範囲指定, 値が小さいほど高画質)
+my $quality = 0;      # CRF値(画質, 0-51の範囲指定, 値が小さいほど高画質) default:25
 my $v_brate = "1000k"; # 動画ビットレート ※ 2-pass時のみ使用
 my $a_brate = "192k";  # 音声ビットレート
 
